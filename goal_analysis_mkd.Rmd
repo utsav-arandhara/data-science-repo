@@ -1,6 +1,9 @@
 ---
 title: "Goal Analysis"
 author: "Utsav Arandhara"
+output: output:  
+  html_document:
+    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
