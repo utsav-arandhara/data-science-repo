@@ -35,11 +35,11 @@ remove(tb_trt_cov)
 remove(tb_trt_success)
 
 # India-specific analysis
-tb_mort_trt_df_BRICS <- tb_mort_trt_df %>%
+tb_mort_trt_df_BRICS <- tb_mort_trt_df %>% # nolint: object_name_linter.
   filter(`Countries..territories.and.areas.x` %in%  c("India", "China", "Brazil", "Russian Federation", "South Africa")) # nolint: line_length_linter.
 
 # Cleaning data columns
-tb_mort_trt_df_BRICS <- tb_mort_trt_df_BRICS %>%
+tb_mort_trt_df_BRICS <- tb_mort_trt_df_BRICS %>% # nolint: object_name_linter.
   separate(Number.of.deaths.due.to.tuberculosis..excluding.HIV, into = c("TB_D excl HIV", "Range of TB_D excl HIV"), sep = "\\s") %>% # nolint: line_length_linter.
   separate(Deaths.due.to.tuberculosis.among.HIV.negative.people..per.100.000.population., into = c("MR_TB_HIV_ng", "Range_MR_TB_HIV_ng"), sep = "\\s") %>% # nolint: line_length_linter.
   separate(Tuberculosis.treatment.coverage, into = c("TB_TRT_COV", "TB_TRT_COV_Range"), sep = "\\s") # nolint: line_length_linter.
