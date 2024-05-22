@@ -6,4 +6,4 @@ For non-bioinformatics scripts and independent learning projects using R and Pyt
 1. Effect of handwashing on mortality.
 2. Goal Analysis for Women and Men football.
 3. Analyzing gender bias in UCB Admissions data set (pre-loaded in R).
-4. Analyzing Tuberculosis in the world using WHO data sets.
+4. Analyzing Tuberculosis in the BRICS countries using WHO data sets.
