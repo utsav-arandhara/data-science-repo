@@ -29,6 +29,11 @@ tb_mort_trt_df <- tb_mort_trt_df %>%
   inner_join(tb_trt_success, by = "Key") %>%
   select(-c(Countries..territories.and.areas, Year))
 
+# Removing datasets
+remove(tb_mort_trt_df)
+remove(tb_trt_cov)
+remove(tb_trt_success)
+
 # India-specific analysis
 tb_mort_trt_df_BRICS <- tb_mort_trt_df %>%
   filter(`Countries..territories.and.areas.x` %in%  c("India", "China", "Brazil", "Russian Federation", "South Africa")) # nolint: line_length_linter.
