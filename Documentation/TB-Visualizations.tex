@@ -1,0 +1,329 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={TB\_Visualizations},
+  pdfauthor={Utsav Arandhara},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{TB\_Visualizations}
+\author{Utsav Arandhara}
+\date{2024-05-23}
+
+\begin{document}
+\maketitle
+
+\subsection{R Markdown}\label{r-markdown}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#! /usr/bin/env R}
+\CommentTok{\#! TB\_analysis.R}
+
+\CommentTok{\# loading libraries}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v forcats   1.0.0     v stringr   1.5.1
+## v lubridate 1.9.2     v tibble    3.2.1
+## v purrr     1.0.1     v tidyr     1.3.0
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Loading in the datasets}
+\NormalTok{tb\_mortality }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"D:/Private/Dihang/Bioinformatics/data{-}science{-}repo/data{-}science{-}repo/Datasets/TB Mortality.csv"}\NormalTok{) }\CommentTok{\# nolint: line\_length\_linter.}
+\NormalTok{tb\_trt\_cov }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"D:/Private/Dihang/Bioinformatics/data{-}science{-}repo/data{-}science{-}repo/Datasets/TB{-}Trt Coverage.csv"}\NormalTok{) }\CommentTok{\# nolint: line\_length\_linter.}
+\NormalTok{tb\_trt\_success }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"D:/Private/Dihang/Bioinformatics/data{-}science{-}repo/data{-}science{-}repo/Datasets/Trt{-}Success TB.csv"}\NormalTok{) }\CommentTok{\# nolint: line\_length\_linter.}
+
+\CommentTok{\# Creating key to filter available data in each data set}
+\NormalTok{tb\_mortality }\OtherTok{\textless{}{-}}\NormalTok{ tb\_mortality }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Key =}  \FunctionTok{paste}\NormalTok{(Countries..territories.and.areas, Year, }\AttributeTok{sep =} \StringTok{"\_"}\NormalTok{))}
+\NormalTok{tb\_trt\_cov }\OtherTok{\textless{}{-}}\NormalTok{ tb\_trt\_cov }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Key =}  \FunctionTok{paste}\NormalTok{(Countries..territories.and.areas, Year, }\AttributeTok{sep =} \StringTok{"\_"}\NormalTok{))}
+\NormalTok{tb\_trt\_success }\OtherTok{\textless{}{-}}\NormalTok{ tb\_trt\_success }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{Key =}  \FunctionTok{paste}\NormalTok{(Countries..territories.and.areas, Year, }\AttributeTok{sep =} \StringTok{"\_"}\NormalTok{))}
+
+\CommentTok{\# Joining data sets}
+\NormalTok{tb\_mort\_trt\_df }\OtherTok{\textless{}{-}}\NormalTok{ tb\_mortality }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{inner\_join}\NormalTok{(tb\_trt\_cov, }\AttributeTok{by =} \StringTok{"Key"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(Countries..territories.and.areas.y, Year.y))}
+
+\NormalTok{tb\_mort\_trt\_df }\OtherTok{\textless{}{-}}\NormalTok{ tb\_mort\_trt\_df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{inner\_join}\NormalTok{(tb\_trt\_success, }\AttributeTok{by =} \StringTok{"Key"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(Countries..territories.and.areas, Year))}
+
+\CommentTok{\# Removing datasets}
+\FunctionTok{remove}\NormalTok{(tb\_mortality)}
+\FunctionTok{remove}\NormalTok{(tb\_trt\_cov)}
+\FunctionTok{remove}\NormalTok{(tb\_trt\_success)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# All countries}
+\NormalTok{tb\_mort\_trt\_df }\OtherTok{\textless{}{-}}\NormalTok{ tb\_mort\_trt\_df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{separate}\NormalTok{(Number.of.deaths.due.to.tuberculosis..excluding.HIV, }\AttributeTok{into =} \FunctionTok{c}\NormalTok{(}\StringTok{"TB\_D excl HIV"}\NormalTok{, }\StringTok{"Range of TB\_D excl HIV"}\NormalTok{), }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{s"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# nolint: line\_length\_linter.}
+  \FunctionTok{separate}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Deaths.due.to.tuberculosis.among.HIV.negative.people..per.100.000.population.}\StringTok{\textasciigrave{}}\NormalTok{, }\AttributeTok{into =} \FunctionTok{c}\NormalTok{(}\StringTok{"MR\_TB\_HIV\_ng"}\NormalTok{, }\StringTok{"Range\_MR\_TB\_HIV\_ng"}\NormalTok{), }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{s"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# nolint: line\_length\_linter.}
+  \FunctionTok{separate}\NormalTok{(Tuberculosis.treatment.coverage, }\AttributeTok{into =} \FunctionTok{c}\NormalTok{(}\StringTok{"TB\_TRT\_COV"}\NormalTok{, }\StringTok{"TB\_TRT\_COV\_Range"}\NormalTok{), }\AttributeTok{sep =} \StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{s"}\NormalTok{) }\CommentTok{\# nolint: line\_length\_linter.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Expected 2 pieces. Missing pieces filled with `NA` in 37 rows [112, 121, 204,
+## 255, 307, 308, 630, 708, 713, 727, 800, 804, 806, 840, 1028, 1123, 1127, 1128,
+## 1374, 1381, ...].
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tb\_mort\_trt\_df }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Year.x }\SpecialCharTok{==} \DecValTok{2021}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{as.integer}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{TB\_D excl HIV}\StringTok{\textasciigrave{}}\NormalTok{), }\AttributeTok{y =} \FunctionTok{as.integer}\NormalTok{(MR\_TB\_HIV\_ng), }\AttributeTok{color =} \FunctionTok{as.integer}\NormalTok{(TB\_TRT\_COV), }\AttributeTok{label =}\NormalTok{ Countries..territories.and.areas.x)) }\SpecialCharTok{+} \CommentTok{\# nolint: line\_length\_linter, line\_length\_linter.}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_x\_log10}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Mortality Rate vs Number of Deaths, accounting for Treatment Coverage in 2021"}\NormalTok{, }\CommentTok{\# nolint}
+    \AttributeTok{x =} \StringTok{"Total number of deaths due to TB excl. HIV (Log 10 Scale)"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Mortality Rates for TB excl. HIV"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{guides}\NormalTok{(}
+    \AttributeTok{color =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{title =} \StringTok{"TB Treatment Coverage"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Transformation introduced infinite values in continuous x-axis
+## Transformation introduced infinite values in continuous x-axis
+\end{verbatim}
+
+\includegraphics{TB-Visualizations_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# BRICS{-}specific analysis}
+\NormalTok{tb\_mort\_trt\_df\_BRICS }\OtherTok{\textless{}{-}}\NormalTok{ tb\_mort\_trt\_df }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\# nolint: object\_name\_linter.}
+  \FunctionTok{filter}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Countries..territories.and.areas.x}\StringTok{\textasciigrave{}} \SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"India"}\NormalTok{, }\StringTok{"China"}\NormalTok{, }\StringTok{"Brazil"}\NormalTok{, }\StringTok{"Russian Federation"}\NormalTok{, }\StringTok{"South Africa"}\NormalTok{)) }\CommentTok{\# nolint: line\_length\_linter. \# nolint: line\_length\_linter.}
+
+\CommentTok{\# Simple plots}
+\NormalTok{tb\_mort\_trt\_df\_BRICS }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year.x, }\AttributeTok{y =} \FunctionTok{as.integer}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{TB\_D excl HIV}\StringTok{\textasciigrave{}}\NormalTok{), }\AttributeTok{group =}\NormalTok{ Countries..territories.and.areas.x, }\AttributeTok{color =}\NormalTok{ Countries..territories.and.areas.x)) }\SpecialCharTok{+} \CommentTok{\# nolint: line\_length\_linter.}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Number of Deaths in BRICS countries due to TB excl. HIV"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Year"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Number of deaths"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{guides}\NormalTok{(}
+    \AttributeTok{color =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{title =} \StringTok{"Countries"}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TB-Visualizations_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tb\_mort\_trt\_df\_BRICS }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year.x, }\AttributeTok{y =} \FunctionTok{as.integer}\NormalTok{(TB\_TRT\_COV), }\AttributeTok{group =}\NormalTok{ Countries..territories.and.areas.x, }\AttributeTok{color =}\NormalTok{ Countries..territories.and.areas.x)) }\SpecialCharTok{+} \CommentTok{\# nolint: line\_length\_linter.}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"TB Treatment Coverage rates in BRICS countries"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Year"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Treatment Coverage rates"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_log10}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{guides}\NormalTok{(}
+    \AttributeTok{color =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{title =} \StringTok{"Countries"}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TB-Visualizations_files/figure-latex/unnamed-chunk-4-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tb\_mort\_trt\_df\_BRICS }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year.x, }\AttributeTok{y =} \FunctionTok{as.integer}\NormalTok{(Treatment.success.rate..new.TB.cases), }\AttributeTok{group =}\NormalTok{ Countries..territories.and.areas.x, }\AttributeTok{color =}\NormalTok{ Countries..territories.and.areas.x)) }\SpecialCharTok{+} \CommentTok{\# nolint: line\_length\_linter.}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Treatment Success rates in BRICS countries"}\NormalTok{,}
+    \AttributeTok{x =} \StringTok{"Year"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Treatment success rates"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_log10}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{guides}\NormalTok{(}
+    \AttributeTok{color =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{title =} \StringTok{"Countries"}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TB-Visualizations_files/figure-latex/unnamed-chunk-4-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tb\_mort\_trt\_df\_BRICS }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Year.x, }\AttributeTok{y =} \FunctionTok{as.integer}\NormalTok{(Treatment.success.rate.for.patients.treated.for.MDR.TB....), }\AttributeTok{group =}\NormalTok{ Countries..territories.and.areas.x, }\AttributeTok{color =}\NormalTok{ Countries..territories.and.areas.x)) }\SpecialCharTok{+}  \CommentTok{\# nolint: line\_length\_linter.}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{title =} \StringTok{"Treatment Success rates for patients with MDR{-}TB in BRICS countries"}\NormalTok{, }\CommentTok{\# nolint: line\_length\_linter.}
+    \AttributeTok{x =} \StringTok{"Year"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Treatment success rates for MDR{-}TB"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{scale\_y\_log10}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{guides}\NormalTok{(}
+    \AttributeTok{color =} \FunctionTok{guide\_legend}\NormalTok{(}\AttributeTok{title =} \StringTok{"Countries"}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Removed 32 rows containing missing values (`geom_line()`).
+\end{verbatim}
+
+\includegraphics{TB-Visualizations_files/figure-latex/unnamed-chunk-4-4.pdf}
+
+\end{document}

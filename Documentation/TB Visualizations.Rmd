@@ -1,3 +1,16 @@
+---
+title: "TB_Visualizations"
+author: "Utsav Arandhara"
+date: "2024-05-23"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
 #! /usr/bin/env R
 #! TB_analysis.R
 
@@ -33,13 +46,18 @@ tb_mort_trt_df <- tb_mort_trt_df %>%
 remove(tb_mortality)
 remove(tb_trt_cov)
 remove(tb_trt_success)
+```
 
+```{r}
 # All countries
 tb_mort_trt_df <- tb_mort_trt_df %>%
   separate(Number.of.deaths.due.to.tuberculosis..excluding.HIV, into = c("TB_D excl HIV", "Range of TB_D excl HIV"), sep = "\\s") %>% # nolint: line_length_linter.
-  separate(Deaths.due.to.tuberculosis.among.HIV.negative.people..per.100.000.population., into = c("MR_TB_HIV_ng", "Range_MR_TB_HIV_ng"), sep = "\\s") %>% # nolint: line_length_linter.
+  separate(`Deaths.due.to.tuberculosis.among.HIV.negative.people..per.100.000.population.`, into = c("MR_TB_HIV_ng", "Range_MR_TB_HIV_ng"), sep = "\\s") %>% # nolint: line_length_linter.
   separate(Tuberculosis.treatment.coverage, into = c("TB_TRT_COV", "TB_TRT_COV_Range"), sep = "\\s") # nolint: line_length_linter.
 
+```
+
+```{r}
 tb_mort_trt_df %>%
   filter(Year.x == 2021) %>%
   ggplot(aes(x = as.integer(`TB_D excl HIV`), y = as.integer(MR_TB_HIV_ng), color = as.integer(TB_TRT_COV), label = Countries..territories.and.areas.x)) + # nolint: line_length_linter, line_length_linter.
@@ -55,8 +73,9 @@ tb_mort_trt_df %>%
     color = guide_legend(title = "TB Treatment Coverage")
   ) +
   theme_bw()
+```
 
-
+```{r }
 # BRICS-specific analysis
 tb_mort_trt_df_BRICS <- tb_mort_trt_df %>% # nolint: object_name_linter.
   filter(`Countries..territories.and.areas.x` %in% c("India", "China", "Brazil", "Russian Federation", "South Africa")) # nolint: line_length_linter. # nolint: line_length_linter.
@@ -116,3 +135,5 @@ tb_mort_trt_df_BRICS %>%
   guides(
     color = guide_legend(title = "Countries")
   )
+
+```
