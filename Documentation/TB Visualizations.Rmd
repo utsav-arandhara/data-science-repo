@@ -9,7 +9,22 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+# Introduction
+
+One of the most infamous diseases in the history of infectious diseases, accounting for 1.3 million deaths around the world in 2022, with an estimated 10.6 million infections is Tuberculosis (TB). Even though TB is preventable and curable, it still remains a public health issue for the world, being part of the 2030 United Nations Sustainable Development Goals (SDGs). Tuberculosis primarily affects the lungs, but can spread to other parts of the body, making it a long battle to recovery. 
+
+The disease is caused by a bacteria, Mycobacterium tuberculosis, which spreads through the air when infected people cough, sneeze or spit. One of the most important facet of the diseases is that an estimated quarter of the global population are infected with the TB bacteria, but do not show symptoms (get ill). Approximately, 5-10% of these 'carriers' will develop full blown TB, which is when they become a health hazard.
+
+In certain countries, the Bacille Calmette-Guérin (BCG) vaccine is given to babies or small children to prevent TB. The vaccine prevents TB outside of the lungs but not in the lungs. One of the prime examples is India. Accounting for a quarter of the TB related deaths in the world, TB remains one of the biggest public health issue in the country. The idea behind this project is to visualize the burden of disease in India, along with some other countries in the world, most importantly the BRICS (Brazil, Russian Federation, India, China, South Africa) countries.
+
+
+# Data
+
+
+
+# Methods
+
+
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 #! /usr/bin/env R
 #! TB_analysis.R
@@ -57,7 +72,7 @@ tb_mort_trt_df <- tb_mort_trt_df %>%
 
 ```
 
-```{r echo=FALSE, warning=FALSE}
+```{r echo=FALSE, warning=FALSE, include=FALSE}
 tb_mort_trt_df %>%
   filter(Year.x == 2021) %>%
   ggplot(aes(x = as.integer(`TB_D excl HIV`), y = as.integer(MR_TB_HIV_ng), color = as.integer(TB_TRT_COV), label = Countries..territories.and.areas.x)) + # nolint: line_length_linter, line_length_linter.
@@ -93,7 +108,9 @@ tb_mort_trt_df_BRICS %>%
   guides(
     color = guide_legend(title = "Countries")
   )
+```
 
+```{r echo=FALSE, warning=FALSE}
 tb_mort_trt_df_BRICS %>%
   ggplot(aes(x = Year.x, y = as.integer(TB_TRT_COV), group = Countries..territories.and.areas.x, color = Countries..territories.and.areas.x)) + # nolint: line_length_linter.
   geom_line() +
@@ -108,6 +125,9 @@ tb_mort_trt_df_BRICS %>%
     color = guide_legend(title = "Countries")
   )
 
+```
+
+```{r echo=FALSE, warning=FALSE}
 tb_mort_trt_df_BRICS %>%
   ggplot(aes(x = Year.x, y = as.integer(Treatment.success.rate..new.TB.cases), group = Countries..territories.and.areas.x, color = Countries..territories.and.areas.x)) + # nolint: line_length_linter.
   geom_line() +
@@ -122,6 +142,9 @@ tb_mort_trt_df_BRICS %>%
     color = guide_legend(title = "Countries")
   )
 
+```
+
+```{r echo=FALSE, warning=FALSE}
 tb_mort_trt_df_BRICS %>%
   ggplot(aes(x = Year.x, y = as.integer(Treatment.success.rate.for.patients.treated.for.MDR.TB....), group = Countries..territories.and.areas.x, color = Countries..territories.and.areas.x)) +  # nolint: line_length_linter.
   geom_line() +
